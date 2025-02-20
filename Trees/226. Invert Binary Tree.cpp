@@ -28,7 +28,6 @@ public:
     root->right = left;
 
     return root;
-
   }
 };
 

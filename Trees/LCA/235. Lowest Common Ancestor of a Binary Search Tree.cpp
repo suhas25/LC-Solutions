@@ -20,7 +20,6 @@ public:
       else
         return curr;
     }
-
     return nullptr;
   }
 };

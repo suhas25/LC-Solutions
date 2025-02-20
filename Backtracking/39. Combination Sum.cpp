@@ -23,7 +23,6 @@ public:
 
     //do not take and step to next index
     helper(candidates, target, index+1, result,curr);
-
   }
 
   vector<vector<int>> combinationSum(vector<int>&candidates, int target)
