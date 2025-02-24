@@ -3,6 +3,59 @@
 //
 
 
+
+namespace Solution1
+{
+  /**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+   */
+  class Codec {
+  public:
+
+    // Encodes a tree to a single string.
+    string serialize(TreeNode* root)
+    {
+      if(root==nullptr)
+        return "NULL,";
+
+      return to_string(root->val)+","+serialize(root->left)+serialize(root->right);
+
+    }
+
+    TreeNode* decode(stringstream& ss)
+    {
+      string curr;
+      getline(ss, curr, ',');
+
+      if(curr=="NULL")
+        return nullptr;
+
+      TreeNode* root = new TreeNode(stoi(curr));
+      root->left = decode(ss);
+      root->right = decode(ss);
+
+      return root;
+    }
+
+    // Decodes your encoded data to tree.
+    TreeNode* deserialize(string data)
+    {
+      stringstream ss(data);
+      return decode(ss);
+    }
+  };
+
+  // Your Codec object will be instantiated and called as such:
+  // Codec ser, deser;
+  // TreeNode* ans = deser.deserialize(ser.serialize(root));
+}
+
 /*
  * Serialise using "#val or #NULL
  * Deserialize and write to vector<strings> by splitting based on # values

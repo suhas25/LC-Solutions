@@ -2,7 +2,25 @@
 // Created by Suhas Reddy on 2/19/25.
 //
 
+// Cantor's Diagonal Argument
+//O(n) time complexity
+class Solution
+{
+  public:
+    string findDifferentBinaryString(vector<string>& nums)
+    {
+      string ans;
+      for (int i = 0; i < nums.size(); i++)
+      {
+        char curr = nums[i][i];
+        ans += curr == '0' ? '1' : '0';
+      }
+      return ans;
+    }
+};
+
 /*
+ *
  * O(n^2) time complexity
  * insert all elements into set.
  * iterate through adding 0/1 to the string.
@@ -10,10 +28,9 @@
  *
  * */
 
-class Solution
+class Solution2
 {
   public:
-
   unordered_set<string>s;
 
   string helper(vector<string>& nums, string curr_string)
@@ -42,4 +59,5 @@ class Solution
 
     return helper(nums, "");
   }
+
 };
