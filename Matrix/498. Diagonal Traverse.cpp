@@ -29,7 +29,6 @@ public:
         reverse(temp.begin(), temp.end());
 
       result.insert(result.end(), temp.begin(), temp.end());
-
     }
     return result;
   }
