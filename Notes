@@ -1,0 +1,43 @@
+- LeetCode problems usually specify constraints on **input size**.
+- Use the following rough estimates for operations per second:
+  - **10^8 to 10^9 operations per second** is generally acceptable.
+  - **10^6 operations per second** is very safe.
+
+#### Time Complexity vs. Maximum Feasible Input Size:
+
+| **Time Complexity**  | **Max `n` Feasible in 1 Second** |
+|----------------------|---------------------------------|
+| O(1) or O(log n)    | Any `n`                         |
+| O(n)                | `10^8`                          |
+| O(n log n)          | `10^7`                          |
+| O(n^2)              | `10^4`                          |
+| O(n^3)              | `10^3`                          |
+| O(2^n)              | `20 - 25`                       |
+| O(n!)               | `10`                            |
+
+#### General Guidelines:
+
+- If **n ≤ 10^5**, your solution should ideally be **O(n) or O(n log n)**.
+- If **n ≤ 10^2**, an **O(n^2)** approach might work.
+- If **n ≤ 20**, **exponential** solutions like backt
+
+Strings
+ std::string data = "apple,banana,grape";
+    std::istringstream stream(data);
+    std::string fruit;
+
+    while (std::getline(stream, fruit, ',')) {
+        std::cout << fruit << std::endl;
+    }
+
+ std::string input = "apple banana cherry";
+     std::stringstream ss(input);
+     std::string word;
+     std::vector<std::string> words;
+
+     while (ss >> word) {
+         words.push_back(word);
+     }
+
+'9'-'0'=9;
+9+'0'='9'

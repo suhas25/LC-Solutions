@@ -1,13 +1,7 @@
-1. Car Fleet
-2. Next greater element 2
 3. Expression Add Operators (meta must)
 4. DecodeString
 5. ramp width
 6. Robot Room Cleaner
-7. 34. Find First and Last Position of Element in Sorted Array
-61. Rotate List
-25. Reverse Nodes in k-Group
-92. Reverse Linked List II
 172. Factorial Trailing Zeroes
 3455. Shortest Matching Substring
 907. Sum of Subarray Minimums
@@ -16,20 +10,31 @@
 287. Find the Duplicate Number
 1268. Search Suggestions System
 
-Trees
-1. Insert into BST
-2. Delete from BST
-3. 426. Convert Binary Search Tree to Sorted Doubly Linked List
-4. 2385. Amount of Time for Binary Tree to Be Infected
-5. https://leetcode.com/problems/flatten-binary-tree-to-linked-list/description/
-6. 99. Recover Binary Search Tree
-7. 510. Inorder Successor in BST II
+Linkedlist
+61. Rotate List
+25. Reverse Nodes in k-Group
+92. Reverse Linked List II
+7. 34. Find First and Last Position of Element in Sorted Array
 
 Study Plans
 NeetCode
 TUF
 https://leetcode.com/studyplan/top-interview-150/
-
-
 https://www.reddit.com/r/leetcode/comments/qz2atz/amazon_final_interview_questions_all_combined/
 
+
+Stocks
+188. Best Time to Buy and Sell Stock IV
+309. Best Time to Buy and Sell Stock with Cooldown
+714. Best Time to Buy and Sell Stock with Transaction Fee
+
+Stack
+85. Maximal Rectangle
+1. Car Fleet
+2. Next greater element 2
+
+backtracking
+https://leetcode.com/problems/partition-to-k-equal-sum-subsets/description/
+
+DP
+https://leetcode.com/problems/interleaving-string/description/
