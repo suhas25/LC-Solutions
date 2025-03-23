@@ -2,6 +2,29 @@
 // Created by Suhas Reddy on 2/14/25.
 //
 
+
+bool canJump1(const std::vector<int>& nums) {
+  int farthest = 0;
+  for (int i = 0; i < nums.size(); ++i) {
+    if (i > farthest) return false; // can't reach this position
+    farthest = std::max(farthest, i + nums[i]);
+  }
+  return true;
+}
+
+int jump2(const std::vector<int>& nums) {
+  int jumps = 0, farthest = 0, currentEnd = 0;
+
+  for (int i = 0; i < nums.size() - 1; ++i) {
+    farthest = std::max(farthest, i + nums[i]);
+    if (i == currentEnd) {
+      ++jumps;
+      currentEnd = farthest;
+    }
+  }
+  return jumps;
+}
+
 //greedy solution
 class Solution
 {
@@ -18,6 +41,7 @@ class Solution
     }
     return last_index==0;
 };
+
 
 
 //O(n^2) dp solution from editorial
