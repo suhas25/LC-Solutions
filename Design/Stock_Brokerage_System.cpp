@@ -2,8 +2,18 @@
 // Created by Suhas Reddy on 3/8/25.
 //
 
+
+#include <string>
+#include <deque>
+#include <unordered_map>
+#include <iostream>
+#include <vector>
+#include <chrono>
+#include <queue>
+#include <algorithm>
+
 struct Trade {
-  string stockSymbol;
+  std::string stockSymbol;
   int volume;
   long long timestamp; // Unix timestamp in milliseconds
 };
@@ -11,15 +21,15 @@ struct Trade {
 class StockBrokerageSystem {
 private:
   //{stock ->trade volume}
-  unordered_map<string, int> stockVolume;
-  deque<Trade> tradeWindow; // Stores trades in the last 1 hour
+  std::unordered_map<std::string, int> stockVolume;
+  std::deque<Trade> tradeWindow; // Stores trades in the last 1 hour
   long long TIME_WINDOW = 3600000; // 1 hour in milliseconds
 
 public:
-  void addTrade(string stockSymbol, int volume)
+  void addTrade(std::string stockSymbol, int volume)
   {
-    long long currentTime = chrono::duration_cast<chrono::milliseconds>(
-                                chrono::system_clock::now().time_since_epoch())
+    long long currentTime = std::chrono::duration_cast<std::chrono::milliseconds>(
+                                std::chrono::system_clock::now().time_since_epoch())
                                 .count();
 
     // Add new trade and update volume
@@ -41,10 +51,10 @@ public:
     }
   }
 
-  vector<pair<string, int>> getTopNStocks(int N)
+  std::vector<std::pair<int, std::string>> getTopNStocks(int N)
   {
     // Min-heap to get top N stocks
-    priority_queue<pair<int, string>, vector<pair<int, string>>, greater<>> minHeap;
+    std::priority_queue<std::pair<int, std::string>, std::vector<std::pair<int, std::string>>, std::greater<>> minHeap;
 
     for (auto& entry : stockVolume)
     {
@@ -54,9 +64,11 @@ public:
     }
 
     // Retrieve the top N stocks
-    vector<pair<string, int>> topStocks;
-    while (!minHeap.empty())
-      topStocks.push_back(minHeap.top()); minHeap.pop();
+    std::vector<std::pair<int, std::string>> topStocks;
+    while (!minHeap.empty()) {
+      topStocks.push_back(minHeap.top());
+      minHeap.pop();
+    }
 
 
     // Reverse to get highest first
@@ -77,13 +89,12 @@ int main() {
   system.addTrade("TSLA", 600);
 
   // Fetch top 3 traded stocks
-  vector<pair<string, int>> topStocks = system.getTopNStocks(3);
+  std::vector<std::pair<int, std::string>> topStocks = system.getTopNStocks(3);
 
-  cout << "Top 3 Trending Stocks in the Last 1 Hour:" << endl;
+  std::cout << "Top 3 Trending Stocks in the Last 1 Hour:" << std::endl;
   for (auto& stock : topStocks) {
-    cout << stock.first << " - " << stock.second << " shares traded" << endl;
+    std::cout << stock.first << " - " << stock.second << " shares traded" << std::endl;
   }
 
   return 0;
 }
-
